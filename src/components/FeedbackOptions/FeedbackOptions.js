@@ -1,8 +1,17 @@
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 // import s from './FeedbackOptions.module.css';
 
-export default function FeedbackOptions({ options, onLeaveFeedback }) {
-  return (
+class FeedbackOptions extends Component {
+  static propTypes = {
+    options: PropTypes.objectOf(PropTypes.number).isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired,
+  }
+
+// ({ options, onLeaveFeedback })
+
+  render() {
+    return
     <div>
       {options.map(option => (
         <button
@@ -11,11 +20,10 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
           onClick={onLeaveFeedback}
         ></button>
       ))}
+      
     </div>
-  );
+  }
+    
 }
 
-FeedbackOptions.propTypes = {
-    options: PropTypes.objectOf(PropTypes.number).isRequired,
-    onLeaveFeedback: PropTypes.func.isRequired,
-};
+export default FeedbackOptions;
