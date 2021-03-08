@@ -12,9 +12,12 @@ class App extends Component {
     bad: 0,
   };
 
-  handleButtonClick = () => {
-    this.setState(prevState => {});
-  };
+  handleButtonClick = option => {
+    this.setState({
+        [option]: this.state[option] + 1,
+      });
+    };
+  // };
 
   render() {
     return (

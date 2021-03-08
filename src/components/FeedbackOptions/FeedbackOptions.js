@@ -1,29 +1,45 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 import PropTypes from 'prop-types';
 // import s from './FeedbackOptions.module.css';
 
-class FeedbackOptions extends Component {
-  static propTypes = {
-    options: PropTypes.objectOf(PropTypes.number).isRequired,
-    onLeaveFeedback: PropTypes.func.isRequired,
-  }
+// class FeedbackOptions extends Component {
+// static propTypes = {
+//   options: PropTypes.objectOf(PropTypes.number).isRequired,
+//   onLeaveFeedback: PropTypes.func.isRequired,
+// };
 
-// ({ options, onLeaveFeedback })
+// render() {
+// const { options, onLeaveFeedback } = this.props;
+// const items = Object.keys(options);
 
-  render() {
-    return
+function FeedbackOptions({ options, onLeaveFeedback }) {
+  const items = Object.keys(options);
+  return (
     <div>
-      {options.map(option => (
+      {items.map(item => (
         <button
           type="button"
-          key={option}
-          onClick={onLeaveFeedback}
-        ></button>
+          key={item}
+          onClick={() => {
+            onLeaveFeedback(item);
+          }}
+        >
+          {item}
+        </button>
       ))}
-      
+
+      {/* {items.map(item => {
+          <button type="button" key={item} onClick={() => onLeaveFeedback(item)}>
+            {item}
+          </button>;
+        })} */}
     </div>
-  }
-    
+  );
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
 
 export default FeedbackOptions;
