@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-// import s from './FeedbackOptions.module.css';
+import s from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
   static propTypes = {
@@ -15,9 +15,9 @@ class FeedbackOptions extends Component {
     // function FeedbackOptions({ options, onLeaveFeedback }) {
     //   const items = Object.keys(options);
     return (
-      <div>
+      <div className={s.buttonSection}>
         {items.map(item => (
-          <button
+          <button className={s.button}
             type="button"
             key={item}
             onClick={() => {
